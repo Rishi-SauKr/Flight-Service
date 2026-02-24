@@ -10,9 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      // Each flight and seat will store airplaneId as a foreign key
-      // If the airplane is deleted, delete all related flights and seats.
+      /* In Sequelize, associations should be defined on both models. Airplane - Flights, Airplane - Seats. This will allow us to easily query related data from either side of the association.
+      Each flight and seat will store airplaneId as a foreign key
+      If the airplane is deleted, delete all related flights and seats.
+      */
       this.hasMany(models.Flight, {
         foreignKey: 'airplaneId',
         onDelete: 'CASCADE'

@@ -1,5 +1,5 @@
 const CrudRepository = require('./crud-repository');
-// When your app starts and you do:
+// When your app starts:
 // Sequelize does the following automatically:
 // Reads all files in /models
 // For each file, calls the exported function with (sequelize, DataTypes)
@@ -14,21 +14,5 @@ class AirplaneRepository extends CrudRepository {
     constructor() {
         super(Airplane);
     }
-
-    /*
-    async getAirplanesWithSeats() {
-        try {
-            const response = await this.model.findAll({
-                include: {
-                    model: this.model.seat,
-                    as: 'seats',
-                },
-            });
-            return response;
-        } catch (error) {
-            throw error;
-        }
-    }
-    */
 }
 module.exports = AirplaneRepository;
